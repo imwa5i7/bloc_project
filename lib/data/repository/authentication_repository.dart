@@ -46,7 +46,7 @@ class AuthenticationRepository {
             "last_name": request.lastName,
             "email": request.email,
             "password": request.password,
-            "contact": "03131122334"
+            "contact": DateTime.now().microsecondsSinceEpoch.toString(),
           },
           baseURL: Constants.authBaseUrl);
       ApiResponse result = HandlingResponse.returnResponse(response);
