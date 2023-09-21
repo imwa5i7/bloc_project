@@ -21,9 +21,9 @@ class CustomButton extends StatelessWidget {
     required this.title,
     required this.onPressed,
     this.icon,
-    this.backgroundColor = Colors.red,
-    this.textColor = Colors.white,
-    this.borderColor = Colors.red,
+    this.backgroundColor = Colors.white,
+    this.textColor = Colors.black,
+    this.borderColor = Colors.white,
     this.iconSize = 18.0,
   });
 
@@ -48,7 +48,7 @@ class CustomButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(12),
               boxShadow: [
                 BoxShadow(
-                    color: backgroundColor.withOpacity(0.3),
+                    color: Colors.grey.withOpacity(0.3),
                     blurRadius: 4.0,
                     offset: Offset(0.0, 5.0)),
               ]),

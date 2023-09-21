@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 import '../../config/constants.dart';
 
 class ApiService {
-  static const baseurl = '${Constants.baseUrl}api/';
+  static const baseurl = Constants.baseUrl;
 
   final Map<String, String> _headers = {
     'Content-Type': 'application/json',

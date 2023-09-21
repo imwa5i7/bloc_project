@@ -39,7 +39,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         elevation: 0,
         iconTheme: const IconThemeData(color: Colors.black),
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: const Color(0xfff5f5f5),
       body: BlocConsumer<RegisterBloc, RegisterState>(
         listener: (context, state) {
           // on success delete navigator stack and push to home
@@ -75,26 +75,26 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    OpenFlutterBlockHeader(title: 'Sign up', width: width),
-                    SizedBox(
-                      height: sizeBetween,
-                    ),
+                    const SizedBox(height: 20),
                     CustomTextFormField(
                       controller: firstNameController,
                       hint: 'Fist Name',
                       validator: (val) => Validator.valueExists(val!),
                     ),
+                    const SizedBox(height: 20),
                     CustomTextFormField(
                       controller: lastNameController,
                       hint: 'Last Name',
                       validator: (val) => Validator.valueExists(val!),
                     ),
+                    const SizedBox(height: 20),
                     CustomTextFormField(
                       controller: emailController,
                       hint: 'Email',
                       validator: (val) => Validator.validateEmail(val!),
                       keyboard: TextInputType.emailAddress,
                     ),
+                    const SizedBox(height: 20),
                     CustomTextFormField(
                       controller: passwordController,
                       hint: 'Password',
@@ -102,16 +102,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       keyboard: TextInputType.visiblePassword,
                       isPassword: true,
                     ),
-                    const SizedBox(height: 16),
-                    OpenFlutterRightArrow(
-                      'Already have an account',
-                      onClick: _showSignInScreen,
-                    ),
-                    const SizedBox(height: 16),
+                    const SizedBox(height: 20),
                     state is RegisterProcessingState
                         ? const Center(child: CircularProgressIndicator())
                         : CustomButton(
                             title: 'SIGN UP', onPressed: _validateAndSend),
+                    const SizedBox(height: 20),
+                    Align(
+                      alignment: Alignment.topCenter,
+                      child: TextButton(
+                        style: TextButton.styleFrom(
+                            backgroundColor: Colors.black,
+                            foregroundColor: Colors.white),
+                        onPressed: () => Navigator.pop(context),
+                        child: Text('Sign in with existing account'),
+                      ),
+                    ),
                   ],
                 ),
               ),

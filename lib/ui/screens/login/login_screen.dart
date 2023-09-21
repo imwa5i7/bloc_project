@@ -21,21 +21,20 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController passwordController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  late double sizeBetween;
-
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
-    sizeBetween = height / 20;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
+        title: Text('Sign In'),
+        centerTitle: true,
         automaticallyImplyLeading: false,
         iconTheme: const IconThemeData(color: Colors.black),
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xfff5f5f5),
       body: BlocConsumer<LoginBloc, LoginState>(
         listener: (context, state) {
           // on success delete navigator stack and push to home
@@ -71,16 +70,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    OpenFlutterBlockHeader(title: 'Sign in', width: width),
-                    SizedBox(
-                      height: sizeBetween,
-                    ),
+                    const SizedBox(height: 20),
                     CustomTextFormField(
                       controller: emailController,
                       hint: 'Email',
                       validator: (val) => Validator.validateEmail(val!),
                       keyboard: TextInputType.emailAddress,
                     ),
+                    const SizedBox(height: 20),
                     CustomTextFormField(
                       controller: passwordController,
                       hint: 'Password',
@@ -92,16 +89,17 @@ class _LoginScreenState extends State<LoginScreen> {
                     state is LoginProcessingState
                         ? const Center(child: CircularProgressIndicator())
                         : CustomButton(
-                            title: 'LOGIN', onPressed: _validateAndSend),
-                    SizedBox(
-                      height: sizeBetween * 2,
-                    ),
+                            title: 'Sign In', onPressed: _validateAndSend),
+                    const SizedBox(height: 20),
                     Align(
                       alignment: Alignment.topCenter,
                       child: TextButton(
+                        style: TextButton.styleFrom(
+                            backgroundColor: Colors.black,
+                            foregroundColor: Colors.white),
                         onPressed: () =>
                             Navigator.pushNamed(context, Routes.register),
-                        child: Text('Or sign with new account'),
+                        child: Text('Or Sign up with new account'),
                       ),
                     ),
                   ],

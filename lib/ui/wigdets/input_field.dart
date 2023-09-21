@@ -49,11 +49,14 @@ class CustomTextFormFieldState extends State<CustomTextFormField> {
         decoration: InputDecoration(
             labelText: widget.hint,
             hintText: widget.hint,
+            floatingLabelBehavior: FloatingLabelBehavior.always,
+            enabledBorder: OutlineInputBorder(),
+            focusedBorder: OutlineInputBorder(),
+            errorBorder: OutlineInputBorder(),
+            focusedErrorBorder: OutlineInputBorder(),
             errorMaxLines: 3,
             hintStyle: TextStyle(
-                color: Colors.grey.shade300,
-                fontSize: 16,
-                fontWeight: FontWeight.w300)),
+                color: Colors.grey, fontSize: 16, fontWeight: FontWeight.w300)),
       ),
     );
   }

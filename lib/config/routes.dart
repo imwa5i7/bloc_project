@@ -19,7 +19,7 @@ class RouteGenerator {
       case Routes.register:
         return MaterialPageRoute(builder: (_) => RegisterScreen());
       case Routes.posts:
-        return MaterialPageRoute(builder: (_) => const PostsScreen());
+        return MaterialPageRoute(builder: (_) => PostsScreen());
 
       default:
         return unDefinedRoute();
